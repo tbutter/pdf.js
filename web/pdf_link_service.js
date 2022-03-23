@@ -59,7 +59,9 @@ function addLinkAttributes(link, { url, target, rel, enabled = true } = {}) {
       return false;
     };
   }
-
+  if (url.startsWith("https://")) {
+    target = LinkTarget.BLANK;
+  }
   let targetStr = ""; // LinkTarget.NONE
   switch (target) {
     case LinkTarget.NONE:
